@@ -1,7 +1,3 @@
-import warnings
-
-warnings.filterwarnings("ignore")
-
 import os
 from tqdm import tqdm
 import numpy as np
@@ -20,6 +16,34 @@ from utils import evaluation_metrics as eval
 
 def prediction(img_path, model_dir, label_path=None, save_path=None,
                n_class=2, crop_size=None, TTA=False, TLC=False, post=False):
+    """Predict the segmentation mask of each damage.
+
+    The segmentation mask of each damage with type of numpy array is predicted
+    using optional inference phase augmentation methods.
+
+    Args:
+      img_path: file path of PLM images.
+      model_dir: file path of saved model parameters.
+      label_path:
+        file path of damage annotation of PLM images, which uesd to calculate the evaluation metrics.
+        If none, no evaluation metrics are provided.
+      save_path: file path for saving the segmentation mask of each damage.
+      n_class: num of classes, background counts as well.
+      crop_size:
+        the size of image patches when using the resizing and cropping method.
+        If none, using resized images for prediction.
+      TTA: If true, using Test Time Augmentation.
+      TLC: If true, using Test-time Local Converter method.
+      post: If true, using image post-processing method
+
+    Returns:
+      preds:
+        A dictionary of the prediction results with the file path of the image as the key and
+        the predicted segmentation masks list as the value. Segmentation mask is numpy array.
+        For example:
+        {'C:\data\BG001_013_1.png': [mask1, mask2, mask3],}
+    """
+
     device = torch.device("cuda")
 
     net_list = []

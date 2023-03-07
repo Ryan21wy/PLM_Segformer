@@ -70,6 +70,25 @@ def calculate_weights_labels(data_path, num_classes, lamda=1):
 
 def train_model(train_path, val_path, model_name, save_path,
                 lr=1e-2, wd=1e-2, bs=8, acc_step=1, epochs=100, n_class=2, lamda=0.5):
+    """Training damage segmentation model.
+
+    The damage segmentation model is trained by the input hyperparameters,
+    and the training history and model parameters are saved.
+
+    Args:
+        train_path: file path of training data.
+        val_path: file path of vaildation data.
+        model_name: file name of model parameters.
+        save_path: file path for saving training history and model parameters.
+        lr: learning rate.
+        wd: weight decay.
+        bs: batch size.
+        acc_step: Gradient accumulation steps, approximately raising batch size to batch size * acc_step.
+        epochs: trianing epochs.
+        n_class: num of classes, background counts as well.
+        lamda: a hyperparameter used to tune the loss function, used in WCE loss and Combo loss (CE + Dice).
+    """
+
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     a_transform = [RandomScaleCrop(scale_rate=[0.8, 1.5]),
