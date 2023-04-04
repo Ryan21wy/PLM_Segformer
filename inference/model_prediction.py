@@ -66,7 +66,7 @@ def prediction(img_path, model_dir, label_path=None, save_path=None,
 
     preds = {}
     file_list = os.listdir(img_path)
-    metrics = [eval.SegmentationMetric(n_class) for _ in range(5)]
+    metrics = [eval.SegmentationMetric2(n_class) for _ in range(5)]
     for image_name in tqdm(file_list):
         img_file_path = os.path.join(img_path, image_name)
         img_data = Image.open(img_file_path)
@@ -152,9 +152,15 @@ def prediction(img_path, model_dir, label_path=None, save_path=None,
                     Image.fromarray(mask).save(os.path.join(save_dir_path, n + '.png'), 'PNG')
     if label_path:
         IoUs = []
+        Hits = []
         for metric in metrics:
-            IoU = metric.meanIntersectionOverUnion()[1][1]
-            IoUs.append(IoU)
+            hit, IoU = metric.getMetrics()
+            IoUs.append(IoU[1])
+            Hits.append(hit[1])
+        print('class Hit:')
+        print(Hits)
         print('class IoU:')
         print(IoUs)
-    return preds
+    return preds, Hits, IoUs
+
+
