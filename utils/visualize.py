@@ -14,8 +14,8 @@ def show_image(image, title=''):
     return
 
 
-def visualize_mask(preds, colors=([0, 0, 255], [255, 0, 0], [0, 255, 0], [0, 255, 255], [255, 0, 255])):
-    plt.figure(figsize=(20, 15))
+def visualize_mask(preds, colors=([0, 0, 255], [255, 0, 0], [0, 255, 0], [0, 255, 255], [255, 0, 255]), fig_size=(20, 50)):
+    plt.figure(figsize=(fig_size[0], fig_size[1]))
     image_path_list = list(preds.keys())
     num = len(image_path_list)
     count = 0

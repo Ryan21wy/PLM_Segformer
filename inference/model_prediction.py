@@ -158,9 +158,13 @@ def prediction(img_path, model_dir, label_path=None, save_path=None,
             IoUs.append(IoU[1])
             Hits.append(hit[1])
         print('class Hit:')
+        print('incompleteness, rupture, fiber delamination and warping, contamination, improper restoration')
         print(Hits)
         print('class IoU:')
+        print('incompleteness, rupture, fiber delamination and warping, contamination, improper restoration')
         print(IoUs)
-    return preds, Hits, IoUs
+        return preds, Hits, IoUs
+    else:
+        return preds
 
 
