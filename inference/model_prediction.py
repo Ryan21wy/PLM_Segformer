@@ -149,7 +149,7 @@ def prediction(img_path, model_dir, label_path=None, save_path=None,
                 damage_names = ['Incompleteness', 'rupture', 'fiber delamination and warping',
                                 'contamination', 'improper restoration']
                 for n, vm in zip(damage_names, masks):
-                    Image.fromarray(mask).save(os.path.join(save_dir_path, n + '.png'), 'PNG')
+                    Image.fromarray(vm).save(os.path.join(save_dir_path, n + '.png'), 'PNG')
     if label_path:
         IoUs = []
         Hits = []
