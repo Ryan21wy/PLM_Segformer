@@ -1,8 +1,8 @@
 # PLM_Segformer: Automatic Damage Segmentation of Sanskrit Palm-leaf Manuscripts
 
-PLM-Segformer framework is developed to provide an automated damage segmentation method for Sanskrit PLMs, which builds on the original Segformer architecture. The hyperparameters for pre-processing, training, inference, and post-processing phases are fully optimized to make the original model more suitable for the PLM segmentation task. The model has been used for automated PLM damage detection in Potala Palace, and it can complete 10064 pages of PLM damage Segmentation within 24 hours.
+PLM-Segformer framework is developed to provide an automated damage segmentation method for Sanskrit PLMs, which builds on the original Segformer architecture. The hyperparameters for pre-processing, training, inference, and post-processing phases are fully optimized to make the original model more suitable for the PLM segmentation task. The model has been used for automated PLM damage detection in Potala Palace, and it can complete 10064 pages of PLM damage Segmentation within 12 hours.
 
-![WorkFlow](https://user-images.githubusercontent.com/81405754/223337166-b757a1e2-a28d-4d41-b66c-1c6b281efb9b.png)
+![figure2](https://user-images.githubusercontent.com/81405754/233529891-d8aa0610-ae19-4a70-af1e-272ee217d4e1.png)
 
 Flowchart of the PLM damage segmentation method. (a) The PLM dataset is established by digital camera acquisition and manual annotation. It has been subsequently divided into the training set, validation set, and test set. Then, various pre-processing methods (b) and loss functions (c) are compared to find the best way to build the damage segmentation models. Finally, inference enhancement methods (d) and post-processing methods (e) were used to optimize the prediction results.
 
@@ -54,6 +54,10 @@ The segmentation mask of each damage is predicted using optional inference phase
 - post: If true, using image post-processing methods
 
 ## Usage
+
+A video demo of PLM-Segformer
+
+https://user-images.githubusercontent.com/81405754/233530449-1b61624a-ff1f-4367-bbaf-1e4bbad210ca.mov
 
 The PLM-Segformer models are provided in [release](https://github.com/Ryan21wy/PLM_Segformer/releases/download/v1.0/PLM_Segformer_models.zip).
 
