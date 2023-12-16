@@ -2,7 +2,7 @@
 
 PLM-Segformer framework is developed to provide an automated damage segmentation method for Sanskrit PLMs, which builds on the original Segformer architecture. The hyperparameters for pre-processing, training, inference, and post-processing phases are fully optimized to make the original model more suitable for the PLM segmentation task. The model has been used for automated PLM damage detection in Potala Palace, and it can complete 10064 pages of PLM damage Segmentation within 12 hours.
 
-![figure2](https://user-images.githubusercontent.com/81405754/233529891-d8aa0610-ae19-4a70-af1e-272ee217d4e1.png)
+![figure 2](https://github.com/Ryan21wy/PLM_Segformer/assets/81405754/e146e966-7439-481d-be9a-746adb2f06d9)
 
 Flowchart of the PLM damage segmentation method. (a) The PLM dataset is established by digital camera acquisition and manual annotation. It has been subsequently divided into the training set, validation set, and test set. Then, various pre-processing methods (b) and loss functions (c) are compared to find the best way to build the damage segmentation models. Finally, inference enhancement methods (d) and post-processing methods (e) were used to optimize the prediction results.
 
